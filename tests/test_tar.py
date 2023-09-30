@@ -15,7 +15,7 @@ from typing import Generator
 
 import pytest
 
-from src.tar import Tar
+from src.pyshellutil import Tar
 
 test_string = u'''1,1,2,1,1
 2,3,1,4,5

@@ -14,7 +14,7 @@ from typing import Any, Generator
 
 import pytest
 
-from src.sort import Sort
+from src.pyshellutil import Sorter
 
 test_string = u'''1,1,2,1,1
 2,3,1,4,5
@@ -73,7 +73,7 @@ def tempdir() -> Generator[Path, None, None]:
 def test_init(logger: Logger):
     logger.info('init')
 
-    my_sort = Sort()
+    my_sort = Sorter()
 
     assert my_sort.delimiter is None
     assert my_sort.ignore_leading_blanks is False
@@ -101,7 +101,7 @@ def test_init(logger: Logger):
 def test_property_get_set(attr: str, expected: Any, logger: Logger):
     logger.info('property_get_set')
 
-    my_sort = Sort()
+    my_sort = Sorter()
     callable = getattr(my_sort, attr)
     callable = expected
 
@@ -113,7 +113,7 @@ def test_property_get_set(attr: str, expected: Any, logger: Logger):
 def test_set_delimiter(logger: Logger):
     logger.info('set_delimiter')
 
-    my_sort = Sort()
+    my_sort = Sorter()
     my_sort.delimiter = '@'
     assert my_sort.delimiter == '@'
 
@@ -127,7 +127,7 @@ def test_set_delimiter(logger: Logger):
 def test_set_ignore_leading_blanks(logger: Logger):
     logger.info('set_ignore_leading_blanks')
 
-    my_sort = Sort()
+    my_sort = Sorter()
     my_sort.ignore_leading_blanks = True
     assert my_sort.ignore_leading_blanks is True
     # end def
@@ -137,7 +137,7 @@ def test_set_ignore_leading_blanks(logger: Logger):
 def test_set_ignore_case(logger: Logger):
     logger.info('set_ignore_case')
 
-    my_sort = Sort()
+    my_sort = Sorter()
     my_sort.ignore_case = True
     assert my_sort.ignore_case is True
     # end def
@@ -147,7 +147,7 @@ def test_set_ignore_case(logger: Logger):
 def test_set_ignore_unprintable(logger: Logger):
     logger.info('set_ignore_unprintable')
 
-    my_sort = Sort()
+    my_sort = Sorter()
     my_sort.ignore_unprintable = True
     assert my_sort.ignore_unprintable is True
     # end def
@@ -157,7 +157,7 @@ def test_set_ignore_unprintable(logger: Logger):
 def test_set_buffer_size(logger: Logger):
     logger.info('set_buffer_size')
 
-    my_sort = Sort()
+    my_sort = Sorter()
     my_sort.buffer_size = '5G'
     assert my_sort.buffer_size == '5G'
 
@@ -171,7 +171,7 @@ def test_set_buffer_size(logger: Logger):
 def test_set_tempdir(tempdir: Path, logger: Logger):
     logger.info('set_tempdir')
 
-    my_sort = Sort()
+    my_sort = Sorter()
     my_sort.tempdir = str(tempdir)
     assert my_sort.tempdir == str(tempdir)
     # end def
@@ -181,7 +181,7 @@ def test_set_tempdir(tempdir: Path, logger: Logger):
 def test_set_output_file(tempdir: Path, logger: Logger):
     logger.info('set_output_file')
 
-    my_sort = Sort()
+    my_sort = Sorter()
     my_sort.output_file = str(tempdir.joinpath('out.txt'))
     assert my_sort.output_file == str(tempdir.joinpath('out.txt'))
     # end def
@@ -191,7 +191,7 @@ def test_set_output_file(tempdir: Path, logger: Logger):
 def test_set_input_file(tempdir: Path, logger: Logger):
     logger.info('set_input_file')
 
-    my_sort = Sort()
+    my_sort = Sorter()
     my_sort.input_file = str(tempdir.joinpath('in.txt'))
     assert my_sort.input_file == str(tempdir.joinpath('in.txt'))
     # end def
@@ -201,7 +201,7 @@ def test_set_input_file(tempdir: Path, logger: Logger):
 def test_set_sort_key_option(logger: Logger):
     logger.info('set_sort_key_option')
 
-    my_sort = Sort()
+    my_sort = Sorter()
     my_sort.sort_key_option = '-k4,4'
     assert my_sort.sort_key_option == '-k4,4'
     # end def
@@ -211,7 +211,7 @@ def test_set_sort_key_option(logger: Logger):
 def test_set_parallel(logger: Logger):
     logger.info('set_parallel')
 
-    my_sort = Sort()
+    my_sort = Sorter()
     my_sort.parallel = 4
     assert my_sort.parallel == 4
     # end def
@@ -223,7 +223,7 @@ def test_sort(tempdir: Path, logger: Logger):
 
     after = tempdir.joinpath('after.txt')
 
-    my_sort = Sort()
+    my_sort = Sorter()
     my_sort.buffer_size = '40M'
     my_sort.ignore_case = True
     my_sort.ignore_leading_blanks = True
