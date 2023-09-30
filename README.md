@@ -24,7 +24,7 @@ results_as_string = my_shell.call_and_parse('rm your_path...', logger)
 
 ### Exception
 
-*exception* [SubprocessErrorException]()
+*exception* [SubprocessErrorException](https://github.com/SatoshiImai/pyshellutil/blob/master/src/shellcaller.py#L14)
 Raised when the subprocess has a stderr and `error_as_exception == True`.
 
 ## sort

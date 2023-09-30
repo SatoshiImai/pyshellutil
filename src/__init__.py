@@ -1,5 +1,3 @@
-# __all__ = ['shellcaller', 'sort', 'tar']
+from . import shellcaller, sort, tar
 
-from .shellcaller import *
-from .sort import *
-from .tar import *
+__all__ = ['shellcaller', 'sort', 'tar']
