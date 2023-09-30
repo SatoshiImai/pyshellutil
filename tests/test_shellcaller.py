@@ -14,7 +14,7 @@ from typing import Any, Generator
 
 import pytest
 
-from src.shellcaller import ShellCaller, SubprocessErrorException
+from src.pyshellutil import ShellCaller, SubprocessErrorException
 
 
 @pytest.fixture(scope='session', autouse=True)

@@ -8,13 +8,13 @@
 import logging
 import re
 
-from .shellcaller import ShellCaller
+from . import ShellCaller
 
 
-class Sort(object):
+class Sorter(object):
 
     def __init__(self):
-        super(Sort, self).__init__()
+        super(Sorter, self).__init__()
 
         # properties
         self.__delimiter = None

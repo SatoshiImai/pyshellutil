@@ -35,9 +35,9 @@ A simple wrapper class to call linux sort command.
 
 ```python
 import tempfile
-from pyshellutil import Sort
+from pyshellutil import Sorter
 
-my_sort = Sort()
+my_sort = Sorter()
 my_sort.buffer_size = '40M'
 my_sort.ignore_case = True
 my_sort.ignore_leading_blanks = True
